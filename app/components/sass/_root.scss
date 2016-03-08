@@ -1,0 +1,339 @@
+/* --------------------------------------------
+	
+	_root
+
+	Project : videofy
+	Author : neon 
+	
+	---
+	
+	CONTEXT:
+	
+	1. BASE
+		1.1 ELEMENTS
+		1.2 FONTS
+		1.3 TYPOGRAPHY
+	
+   -------------------------------------------- */
+
+
+
+/*  --------------------------------------------
+
+	1. BASE (@base) - base html elements
+	
+    -------------------------------------------- */
+
+/* ----- 1.1 ELEMENTS ----- */
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+}
+
+html {
+    font-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.66;
+    background: $bg-color;
+    -webkit-text-size-adjust: none;
+}
+._container {
+    background: $bg-color;
+}
+
+a {
+    color: #111;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    color: $main-accent
+}
+
+iframe {
+    border: none
+}
+
+ul {
+    list-style: square
+}
+
+img,
+figure,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 404 */
+
+main {
+    .wrapper_404 {
+        display: flex;
+        background: $secondary-accent;
+        padding: clamp(40px, 15vw, 90px);
+        margin-top: clamp(40px,4vw,150px);
+
+        .left_wrapper {
+            .path_404 {
+                width: 50px;
+            }
+            .text_404 {
+                font-weight: 900;
+                margin: 0;
+            }
+            .go_back {
+                display: inline-block;
+                background: $main-accent;
+                padding: 10px 0;
+                width: 100%;
+                max-width: 170px;
+                text-align: center;
+                margin-top: 50px;
+                color: #fff;
+                font-weight: 700;
+                font-size: 11px;
+            }
+        }
+        .right_wrapper {
+            .img_404 {
+                max-width: 540px;
+            }
+        }
+    }
+}
+
+/* ----- 1.2 FONTS ----- */
+/* BODY */
+body,
+input,
+textarea,
+select,
+input[type=file],
+input[type=submit],
+button,
+label {
+    font-family: $main-font, sans-serif;
+}
+
+
+/* ----- 1.3 TYPOGRAPHY ----- */
+/* headings and paragraphs  */
+h1 {
+    font-size: calc(20px + 2.6vw);
+    margin: 0.8em 0 0.4em 0;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: calc(16px + 1.44vw);
+    margin: 1.0em 0 0.6em 0;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: calc(15px + .3vw);
+    margin: 1.0em 0 .6em 0;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: calc(12px + .1vw);
+    margin: 2.0em 0 .6em 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h5 {
+    font-size: calc(12px + .1vw);
+    margin: 1.0em 0 .6em 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h6 {
+    font-size: calc(12px + .1vw);
+    margin: 1.0em 0 .6em 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+p {
+    margin: 1em 0 1.4em 0;
+}
+
+h1,
+.entry-title {
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+/* blockquote  */
+blockquote {
+    position: relative;
+    margin: 2.6em 0;
+    padding: 0 1.4em;
+    line-height: 1.5;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: calc(16px + .4vw);
+    letter-spacing: 0.04em;
+}
+
+blockquote::before {
+    font-size: 610%;
+    position: absolute;
+    line-height: 5rem;
+    content: open-quote;
+    top: 0;
+    left: 0;
+    opacity: .1;
+}
+
+blockquote p {
+    line-height: 100%;
+}
+
+blockquote cite {
+    display: block;
+    font-size: 15px;
+    padding-right: 1em;
+    margin-top: 1em;
+    font-style: normal;
+    font-weight: 500;
+    opacity: .4;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+hr {
+    padding: .6em 0 1em 0;
+    margin-bottom: 3em;
+    outline: 0;
+    border-width: 0 0 7px 0;
+    border-style: solid;
+    border-color: #f1f3f3;
+}
+
+/* tables  */
+table {
+    font-size: .875em;
+    margin-bottom: 3em;
+    text-align: center;
+}
+
+tr th {
+    padding: .8em 1em;
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+}
+
+tr td {
+    color: #6A7686;
+    padding: .8em 1em .6em 1em;
+    border-bottom: 1px solid #eee;
+}
+
+tfoot tr td {
+    border-bottom: 0
+}
+
+tr:nth-child(odd) td {
+    background: #f8f7f9;
+}
+
+/* code and pre  */
+code,
+pre {
+    max-width: 100%;
+    overflow: scroll;
+    padding: 0 3px 2px;
+    margin-bottom: 4em;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    font-size: 12px;
+    color: #333333;
+    white-space: pre;
+    overflow: auto;
+}
+
+code {
+    display: inline-block;
+    margin: 0 .4em;
+    padding: 1px 6px;
+    background: #fff;
+    border: 1px solid #DDE4E6;
+    box-shadow: 1px 1px 0 #fff, 2px 2px 0 #DDE4E6;
+}
+
+pre {
+    border: 1px solid #eee;
+    padding: 12px 20px;
+}
+
+/* lists  */
+ol,
+ul {
+    margin: .2em 0 1em 0;
+}
+
+ul {
+    list-style: none;
+}
+
+dt {
+    margin-bottom: .4em;
+    font-weight: 500;
+}
+
+dd {
+    padding-bottom: 1em;
+    margin-left: 1.4em;
+}
+
+
+/* CONTENT ALIGNMENT */
+._container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.aligncenter,
+.alignnone,
+.alignright,
+.alignleft {
+    display: block;
+    margin: 1.6em auto;
+    clear: both;
+}
+
+.flex-fill {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.clr_h {
+    position: relative;
+    width: 100%;
+    height: $header-height;
+}

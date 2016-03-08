@@ -1,0 +1,41 @@
+/* Header
+   ========================================================================== */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: transparentize($bg-color, 0.5);
+
+    .inner-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: $header-height;
+        max-height: 80px;
+
+        .logo {
+            font-size: 0em;
+
+            .logo-path {
+                display: block;
+                height: 100%;
+                width: $logo-width;
+            }
+        }
+
+        .right_wrapper {
+            span {
+                display: block;
+                a {
+                    font-size: 12px;
+                    font-weight: 600;
+                    letter-spacing: .2px;
+                    text-transform: lowercase;
+                }
+            }
+        }
+    }
+}

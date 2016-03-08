@@ -1,0 +1,36 @@
+.container {
+	padding: 0 90px;
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		padding: 0 25px;
+	}
+
+	main {
+
+		.wrapper_404 {
+			flex-direction: column-reverse;
+			row-gap: 20px;
+			.left_wrapper {
+				text-align: center;
+
+				.path_404 {
+					width: 35px;
+					margin: 0 auto;
+				}
+				.text_404 {
+					font-size: 18px;
+				}
+				.go_back {
+					margin-top: 15px;
+					min-width: 100%;
+				}
+			}
+			.right_wrapper {
+
+			}
+		}
+
+	}
+}

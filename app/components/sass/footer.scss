@@ -1,0 +1,43 @@
+/* Header
+   ========================================================================== */
+
+footer {
+    padding: clamp(24px,3vw,48px);
+    font-size: 14px;
+    font-weight: 400;
+    background-image: linear-gradient(to right, $dotted-rgb 0 10%, rgba(255, 255, 255, 0) 10%);
+    background-position: top;
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+
+    .inner-footer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .left_wrapper,
+        .right_wrapper {
+            span {
+                display: block;
+                font-size: 12px;
+                font-weight: 500;
+                letter-spacing: .2px;
+                a { 
+                    color: $secondary-black;
+                    &:hover {
+                        color: $main-accent;
+                    }
+                }
+            }
+        }
+
+        
+        .left_wrapper span {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            column-gap: 20px;
+            row-gap: 10px;
+        }
+    }
+}

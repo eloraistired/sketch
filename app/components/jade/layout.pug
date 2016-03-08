@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+    include head
+
+    body
+        ._container
+            block header
+            include header
+
+            block main
+                main
+                    .container
+                        .wrapper_404 
+                            .error
+                                .error_code #{err.status}
+                                .error_text it's an error.
+                                .error_info #{err.message}
+
+            .flex-fill
+            block footer
+                include footer
+        script(src="/static/bundle.js") 
