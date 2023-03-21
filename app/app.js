@@ -7,7 +7,6 @@ class App {
         this.createContent()
 
         this.createPreloader()
-
     }
 
     createPreloader() {
