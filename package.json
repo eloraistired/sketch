@@ -1,5 +1,5 @@
 {
-  "name": "musify",
+  "name": "neon",
   "version": "1.0.0",
   "scripts": {
     "start": "concurrently --kill-others \"npm run dev:backend\" \"npm run dev:frontend\"",
@@ -10,7 +10,9 @@
   },
   "author": "Neon",
   "license": "ISC",
-  "engine": "",
+  "engines": {
+    "node": "^16.x"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "babel-loader": "^8.2.2",

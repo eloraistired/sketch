@@ -1,4 +1,5 @@
 const express = require('express')
+const mainRoutes = require('./main.routes')
 
 const router = express.Router()
 
@@ -7,15 +8,7 @@ const router = express.Router()
  */
 router.get('/status', (req, res) => res.json('ok'))
 
-/**
-  * GET /
-  */
-router.get('/', (req, res) => res.render('index', { title: 'Express' }))
-
-/**
-   * GET /
-   */
-router.get('/login', (req, res) => res.render('login', { title: 'Login' }))
+router.use(mainRoutes)
 
 
 module.exports = router

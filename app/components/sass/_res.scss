@@ -2,6 +2,19 @@
 	padding: 0 90px;
 }
 
+.noacss {
+	display: none;
+	padding: 0;
+	height: 0;
+	width: 0;
+	opacity: 0;
+	user-select: none;
+	appearance: none;
+	visibility: hidden;
+	margin: 0;
+	z-index: -9999
+}
+
 @media screen and (max-width: 768px) {
 	.container {
 		padding: 0 25px;

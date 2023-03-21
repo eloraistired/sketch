@@ -25,6 +25,9 @@ app.set('views', [path.join(__dirname, '../app/./views'), path.join(__dirname, '
 // set static path
 app.use('/static', express.static(path.join(__dirname, '../.././dist')))
 
+// set static(alt) path
+app.use('/static', express.static(path.join(__dirname, '../.././static')))
+
 // if error is not an instanceOf APIError, convert it.
 app.use(error.converter)
 

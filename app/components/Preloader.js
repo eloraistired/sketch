@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-// import { Texture } from 'ogl';
 
 import GSAP from 'gsap';
 
@@ -8,35 +7,18 @@ import Component from 'classes/Component';
 
 import each from 'lodash/each';
 
-import { split } from 'utils/text';
-
 export default class Preloader extends Component {
   constructor({ canvas }) {
     super({
-      element: '.preloader',
+      element: '._container',
       elements: {
-        title: '.preloader__text',
-        number: '.preloader__number',
-        numberText: '.preloader__number__text',
+        number: '.right_wrapper span'
       },
     });
 
     this.canvas = canvas;
 
-    window.TEXTURES = {};
 
-    split({
-      element: this.elements.title,
-      expression: '<br>',
-    });
-
-    split({
-      element: this.elements.title,
-      expression: '<br>',
-    });
-
-    this.elements.titleSpans =
-      this.elements.title.querySelectorAll('span span');
 
     this.length = 0;
 
@@ -44,11 +26,10 @@ export default class Preloader extends Component {
   }
 
   createLoader() {
+    console.log(window.ASSETS, 'it\'s called')
     each(window.ASSETS, (image) => {
-      // const texture = new Texture(this.canvas.gl, {
-      //   generateMipmaps: false,
-      // });
 
+      console.log(window.ASSETS, 'it\'s called too')
       const media = new window.Image();
 
       media.crossOrigin = 'anonymous';
@@ -60,7 +41,6 @@ export default class Preloader extends Component {
         this.onAssetLoaded();
       };
 
-      window.TEXTURES[image] = texture;
     });
   }
 
@@ -69,7 +49,7 @@ export default class Preloader extends Component {
 
     const percent = this.length / window.ASSETS.length;
 
-    this.elements.numberText.innerHTML = `${Math.round(percent * 100)}%`;
+    this.elements.number.innerHTML = `${Math.round(percent * 100)}%`;
 
     if (percent === 1) {
       this.onLoaded();
