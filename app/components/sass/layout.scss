@@ -1,0 +1,54 @@
+/* Layout
+   ========================================================================== */
+
+// ruler
+// .wrapper::before {
+//     content: '';
+//     position: absolute;
+//     border: 1px dashed #111;
+//     left: 0;
+//     right: 0;
+// }
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+
+    .common {
+        position: relative;
+        
+        
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px;
+
+        width: 420px;
+        max-width: 50vw;
+
+        .webpack,
+        .express {
+            height: auto;
+            max-height: 40px;
+        }
+        .webpack {
+            justify-self: end;
+            width: 90px;
+        }
+        .express {
+            width: 70px;
+        }
+    }
+    .common::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: linear-gradient(to bottom, $dotted-rgb 0 10%, rgba(255, 255, 255, 0) 10%);
+        background-position: top center;
+        background-repeat: repeat-y;
+        background-size: 1px 8px
+    }
+}

@@ -1,8 +1,11 @@
 extends components/jade/layout
 
 block main
-  .common
-    svg.webpack()
-      use(xlink:href='#webpack')
-    svg.express()
-      use(xlink:href='#express')
+  .wrapper
+    .common
+      .webpack
+        svg.webpack()
+          use(xlink:href='#webpack')
+      .express
+        svg.express()
+          use(xlink:href='#express')
