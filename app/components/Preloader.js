@@ -12,7 +12,7 @@ export default class Preloader extends Component {
     super({
       element: '._container',
       elements: {
-        number: '.right_wrapper span'
+        number: '.right_wrapper span.loader_'
       },
     });
 
@@ -26,10 +26,8 @@ export default class Preloader extends Component {
   }
 
   createLoader() {
-    console.log(window.ASSETS, 'it\'s called')
     each(window.ASSETS, (image) => {
 
-      console.log(window.ASSETS, 'it\'s called too')
       const media = new window.Image();
 
       media.crossOrigin = 'anonymous';
