@@ -10,9 +10,9 @@ import each from 'lodash/each';
 export default class Preloader extends Component {
   constructor({ canvas }) {
     super({
-      element: '._container',
+      element: '._preloader',
       elements: {
-        number: '.right_wrapper span.loader_'
+        number: '.preloader .preloader_text'
       },
     });
 
