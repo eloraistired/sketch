@@ -1,9 +1,14 @@
-._preloader
+._preloader.loaded
     .preloader
         .preloader_wrapper
-            .flex-fill
-            .preloader_title #{title}
+            .container
+                .preloader_title #{title}
+                .preloader_uwu Butterscotch is like a ray of sunshine on a rainy day, except it's more like a deliciously gooey ray of caramel-colored heaven that will make you forget all your problems, at least until you finish the last bite and realize you have to go back to real life.
             .flex-fill
             .preloader_footer.container
                     .preloader_action_text begin 
                     .preloader_text loading_
+
+    ._wobble
+        svg.overlay(viewbox='0 0 100 100' preserveaspectratio='none')
+            path.overlay__path(vector-effect='non-scaling-stroke' d='M 0 100 V 100 Q 50 100 100 100 V 100 z')

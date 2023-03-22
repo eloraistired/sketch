@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const routes = require('../app/routes/v1')
 const { logs } = require('./vars')
 const error = require('../app/middlewares/error')
+const preloader = require('../app/middlewares/preloader')
 const path = require('path')
 
 const app = express()
@@ -14,6 +15,9 @@ app.use(morgan(logs))
 // parse body params and attache them to req.body
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
+// set middleware for preloader
+app.use(preloader.handler)
 
 // mount routes
 app.use('/', routes)
