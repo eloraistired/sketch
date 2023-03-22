@@ -5,7 +5,7 @@ html(lang='en')
     body
         ._container
             block header
-            include header
+                include header
 
             block main
                 main
@@ -23,4 +23,5 @@ html(lang='en')
                 include modules/symbols
             block preloader
                 include modules/preloader
+    block script
         script(src="/static/bundle.js") 

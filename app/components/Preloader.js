@@ -8,90 +8,130 @@ import Component from 'classes/Component';
 import each from 'lodash/each';
 
 export default class Preloader extends Component {
-  constructor({ canvas }) {
-    super({
-      element: '._preloader',
-      elements: {
-        number: '.preloader .preloader_text'
-      },
-    });
+    constructor({
+        element
+    }) {
+        super({
+            element,
+            elements: {
+                number: '.preloader .preloader_text .preloader_numberText',
+                wobblePath: '._wobble .overlay .overlay__path',
+                content: '.preloader .preloader_wrapper'
+            },
+        });
 
-    this.canvas = canvas;
+        this.preloader = element;
 
 
 
-    this.length = 0;
+        this.length = 0;
 
-    this.createLoader();
-  }
+        this.element
 
-  createLoader() {
-    each(window.ASSETS, (image) => {
-
-      const media = new window.Image();
-
-      media.crossOrigin = 'anonymous';
-      media.src = image;
-
-      media.onload = (_) => {
-        // texture.image = media;
-
-        this.onAssetLoaded();
-      };
-
-    });
-  }
-
-  onAssetLoaded(image) {
-    this.length++;
-
-    const percent = this.length / window.ASSETS.length;
-
-    this.elements.number.innerHTML = `${Math.round(percent * 100)}%`;
-
-    if (percent === 1) {
-      this.onLoaded();
+        this.createLoader();
     }
-  }
 
-  onLoaded() {
-    return new Promise((resolve) => {
-      this.emit('completed');
+    createLoader() {
+        each(window.ASSETS, (image) => {
 
-      this.animateOut = GSAP.timeline({
-        delay: 1,
-      });
+            const media = new window.Image();
 
-      this.animateOut.to(this.elements.titleSpans, {
-        duration: 1.5,
-        ease: 'expo.out',
-        stagger: 0.1,
-        y: '150%',
-      });
+            media.crossOrigin = 'anonymous';
+            media.src = image;
 
-      this.animateOut.to(
-        this.elements.numberText,
-        {
-          duration: 1.5,
-          ease: 'expo.out',
-          stagger: 0.1,
-          y: '100%',
-        },
-        '-=1.4'
-      );
+            media.onload = (_) => {
+                // texture.image = media;
 
-      this.animateOut.to(this.element, {
-        autoAlpha: 0,
-        duration: 1.5,
-      });
+                this.onAssetLoaded();
+            };
 
-      this.animateOut.call((_) => {
-        this.destroy();
-      });
-    });
-  }
+        });
+    }
 
-  destroy() {
-    this.element.parentNode.removeChild(this.element);
-  }
+    onAssetLoaded(image) {
+        this.length++;
+
+        const percent = this.length / window.ASSETS.length;
+
+        this.elements.number.innerHTML = `${Math.round(percent * 100)}%`;
+
+        if (percent === 1) {
+            this.onLoaded();
+        }
+    }
+
+    onLoaded() {
+        return new Promise((resolve) => {
+            this.emit('completed');
+
+            this.animateOut = GSAP.timeline({
+                delay: 1,
+            })
+
+            this.animateOut.set(this.elements.wobblePath, {
+                attr: {
+                    d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z'
+                }
+            })
+            this.animateOut.to(this.elements.wobblePath, {
+                duration: 0.8,
+                ease: 'power4.in',
+                attr: {
+                    d: 'M 0 100 V 50 Q 50 0 100 50 V 100 z'
+                }
+            }, 0)
+            this.animateOut.to(this.elements.wobblePath, {
+                duration: 0.3,
+                ease: 'power2',
+                attr: {
+                    d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z'
+                }
+            })
+
+            this.animateOut.to(this.elements.content.childNodes, {
+                duration: 1.5,
+                ease: 'expo.out',
+                color: '#fff',
+                stagger: -.2
+            },
+            '-=.7'
+            )
+
+
+            this.animateOut.to(this.elements.number, {
+                duration: 1.5,
+                ease: 'expo.out',
+                y: '150%',
+            })
+
+            this.animateOut.to(
+                this.elements.number, {
+                    duration: 1.5,
+                    ease: 'expo.out',
+                    y: '100%',
+                },
+                '-=1.4'
+            )
+
+
+
+
+            // GSAP.timeline({ delay: 2 })
+
+
+            // this.animateOut.to(this.element, {
+            //   autoAlpha: 0,
+            //   duration: 1.5,
+            // });
+
+            this.animateOut.call((_) => {
+                this.element.classList.add('loaded')
+                // this.destroy();
+            });
+        });
+    }
+
+    destroy() {
+        this.element.parentNode.removeChild(this.element);
+    }
 }
