@@ -110,7 +110,7 @@ export default class Preloader extends Component {
                     ease: 'expo.out',
                     y: '100%',
                 },
-                '-=1.4'
+                '-=3.5'
             )
 
 

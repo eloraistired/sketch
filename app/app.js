@@ -91,3 +91,26 @@ new App()
 //         attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
 //     })
 
+// test xhttp
+
+
+    fetch("/",{
+        method: 'GET',
+        mode: "no-cors",
+        cache: "no-cache", 
+        credentials: "same-origin", 
+        headers: {"Content-Type": "application/json"}
+      })
+    .then(res=>{
+        console.log("res1",res)
+        return res.text();
+    })
+    .then(res=>{
+        const doc = document.createElement('div')
+        doc.innerHTML = res
+        console.log("res2",doc)
+
+    })
+    .catch(res=>{
+        console.log("Exception : ",res);
+    })
