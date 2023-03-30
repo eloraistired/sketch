@@ -72,9 +72,14 @@
             background-size: 8px 1px;
             background-repeat: repeat-x;
 
-
+            .preloader_action_text,
             .preloader_text {
                 overflow: hidden;
+            }
+            .preloader_action_text {
+                .preloader_actionText {
+                    transform: translateY(100%)
+                }
             }
         }
     }
